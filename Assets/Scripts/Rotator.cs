@@ -10,7 +10,6 @@ public class Rotator : MonoBehaviour
     #region Public Variable
     public float dragEffector = 0.25f;
     public Rigidbody2D rigidBody;
-    //public List<Rigidbody> ballRigidbodies = new List<Rigidbody>();
     public Button resetButton;
     public float minimumVelocity = 1;
     public Vector2 centerOfMass;
@@ -33,7 +32,7 @@ public class Rotator : MonoBehaviour
 
     private void ReloadScene()
     {
-        SceneManager.LoadScene("Gameplay", LoadSceneMode.Single);
+        SceneManager.LoadScene("Gameplay2D", LoadSceneMode.Single);
     }
 
     private void DragEnd(Vector2 obj)
