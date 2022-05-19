@@ -13,15 +13,17 @@ public class Rotator : MonoBehaviour
     //public List<Rigidbody> ballRigidbodies = new List<Rigidbody>();
     public Button resetButton;
     public float minimumVelocity = 1;
+    public Vector2 centerOfMass;
     #endregion
     #region Private Variable
     private Transform _transform;
-    private float defaultFixedDeltaTime;
+    private float defaultFixedDeltaTime; 
     #endregion
 
     void Start()
     {
         _transform = transform;
+        rigidBody.centerOfMass = centerOfMass;
         DragHandler.instance.onDragStart += DragStart;
         DragHandler.instance.onDrag_delta += DragDelta;
         DragHandler.instance.onDragEnd += DragEnd;
@@ -45,45 +47,13 @@ public class Rotator : MonoBehaviour
     {
         if (dragged)
         {
-            //Vector3 rotationAmount = Vector3.zero;
-            //rotationAmount += new Vector3(_transform.rotation.x, _transform.rotation.y, dragEffector * dragAmount.x);
-            ////rigidBody.rotation = Quaternion.Euler(rotationAmount);
-            ////rigidBody.AddTorque(rotationAmount);
-
-            //Quaternion deltaRotation = Quaternion.Euler(rotationAmount * Time.fixedDeltaTime);
-
             rigidBody.AddTorque(dragEffector * dragAmount.x,ForceMode2D.Force);
-
-            //rigidBody.MoveRotation(rigidBody.rotation * deltaRotation);
         }
     }
     private void DragDelta(Vector2 dragAmount)
     {
         dragged = true;
-        this.dragAmount = dragAmount;
-
-
-
-        //if(rigidBody.angularVelocity.z >= minimumVelocity)
-        //{
-        //    foreach (Rigidbody item in ballRigidbodies)
-        //    {
-        //        //item.isKinematic = true;
-        //        //item.useGravity = false;
-        //        //Time.fixedDeltaTime = 0.01f;
-        //    }
-
-        //}
-        //else
-        //{
-        //    foreach (Rigidbody item in ballRigidbodies)
-        //    {
-        //        //item.isKinematic = false;
-        //        //item.useGravity = true;
-        //        //Time.fixedDeltaTime = defaultFixedDeltaTime;
-        //    }
-        //}
-        //Debug.Log($"Drag Direction {dragAmount}");
+        this.dragAmount = dragAmount;      
     }
 
     private void DragStart(Vector2 dragAmount)
