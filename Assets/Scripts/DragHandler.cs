@@ -60,7 +60,7 @@ public class DragHandler : MonoBehaviour
         }
         currentDrag = null;
     }
-    private void FixedUpdate()
+    private void Update()
     {
         if (Input.GetMouseButtonDown(0))
         {
