@@ -6,10 +6,16 @@ using Text = TMPro.TextMeshProUGUI;
 
 public class UIManager : MonoBehaviour
 {
+    #region Public Variables
+    [Header("UI Dependencies")]
     public Text TargetScoreText;
     public Text CurrentScoreText;
+    public RectTransform winPanel;
+    public RectTransform losePanel;
+    [Header("Variables")]
     public IntReference targetScore;
     public IntReference currentScore;
+    #endregion
 
     private void Start()
     {
@@ -19,5 +25,13 @@ public class UIManager : MonoBehaviour
     public void UpdateCurrentScoreUI()
     {
         CurrentScoreText.text = currentScore.Value.ToString();
+    }
+    public void LevelWinCallback()
+    {
+        "-----------< Level Won >-----------".Debug("FF00FF");
+    }
+    public void LevelLoseCallback()
+    {
+        "-----------< Level Lost >-----------".Debug("FF00FF");
     }
 }

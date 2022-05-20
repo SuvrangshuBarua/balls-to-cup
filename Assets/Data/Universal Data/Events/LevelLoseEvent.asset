@@ -9,10 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f31e68f86ab08b446be128e2c3524cbc, type: 3}
-  m_Name: BallPoint
+  m_Script: {fileID: 11500000, guid: 18902cb28dc8e5d4c90b767765369871, type: 3}
+  m_Name: LevelLoseEvent
   m_EditorClassIdentifier: 
-  DeveloperDescription: 'points each ball collected
-
-'
-  Value: 1
