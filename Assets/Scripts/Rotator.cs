@@ -11,22 +11,17 @@ public class Rotator : MonoBehaviour
     public float dragEffector = 0.25f;
     public Rigidbody2D rigidBody;
     public Button resetButton;
-    public float minimumVelocity = 1;
     public Vector2 centerOfMass;
     #endregion
     #region Private Variable
-    private Transform _transform;
-    private float defaultFixedDeltaTime; 
     #endregion
 
     void Start()
     {
-        _transform = transform;
         rigidBody.centerOfMass = centerOfMass;
         DragHandler.instance.onDragStart += DragStart;
         DragHandler.instance.onDrag_delta += DragDelta;
         DragHandler.instance.onDragEnd += DragEnd;
-        defaultFixedDeltaTime = Time.fixedDeltaTime;
         resetButton.onClick.AddListener(ReloadScene);
     }
 
