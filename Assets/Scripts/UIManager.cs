@@ -28,10 +28,10 @@ public class UIManager : MonoBehaviour
     }
     public void LevelWinCallback()
     {
-        "-----------< Level Won >-----------".Debug("FF00FF");
+        "-----------< Level Won >-----------".Debug("90EE90");
     }
     public void LevelLoseCallback()
     {
-        "-----------< Level Lost >-----------".Debug("FF00FF");
+        "-----------< Level Lost >-----------".Debug("#FF5733");
     }
 }
