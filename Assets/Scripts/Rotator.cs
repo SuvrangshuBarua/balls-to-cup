@@ -8,26 +8,34 @@ using UnityEngine.UI;
 public class Rotator : MonoBehaviour
 {
     #region Public Variable
+    [HideInInspector]
     public float dragEffector = 0.25f;
-    public Rigidbody2D rigidBody;
-    public Button resetButton;
-    public Vector2 centerOfMass;
+    [Range(1f, 2f)]
+    public float dragSensitivity = 1f;
+    [Range(5, 20)]
+    [Tooltip("rotational deceleration of the tube")]
+    public int angularDrag = 10;
+    //public Button resetButton;
+    
     #endregion
+
     #region Private Variable
+    private Rigidbody2D rigidBody;
+    private Vector2 centerOfMass;
+    private int dragMultiplier = 100;
+    private bool dragged;
+    private Vector2 dragAmount;
     #endregion
 
     void Start()
     {
+        centerOfMass = Vector2.zero;
+        rigidBody = GetComponent<Rigidbody2D>();
         rigidBody.centerOfMass = centerOfMass;
         DragHandler.instance.onDragStart += DragStart;
         DragHandler.instance.onDrag_delta += DragDelta;
         DragHandler.instance.onDragEnd += DragEnd;
-        resetButton.onClick.AddListener(ReloadScene);
-    }
-
-    private void ReloadScene()
-    {
-        SceneManager.LoadScene("Gameplay2D", LoadSceneMode.Single);
+        //resetButton.onClick.AddListener(ReloadScene);
     }
 
     private void DragEnd(Vector2 obj)
@@ -35,8 +43,7 @@ public class Rotator : MonoBehaviour
         dragged = false;
     }
 
-    bool dragged;
-    Vector2 dragAmount;
+    
     private void FixedUpdate()
     {
         if (dragged)
@@ -54,5 +61,15 @@ public class Rotator : MonoBehaviour
     {
     }
 
-    
+    public void ApplySettings()
+    {
+        rigidBody = GetComponent<Rigidbody2D>();
+        rigidBody.angularDrag = angularDrag;
+        dragEffector = rigidBody.mass * dragMultiplier * dragSensitivity;
+
+    }
+    private void ReloadScene()
+    {
+        SceneManager.LoadScene("Gameplay2D", LoadSceneMode.Single);
+    }
 }

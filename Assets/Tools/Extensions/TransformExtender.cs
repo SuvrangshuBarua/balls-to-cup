@@ -86,5 +86,15 @@ public static class TransformExtender
         onComplete?.Invoke();
     }
 
+    public static List<Transform> GetAllChildren(this Transform transform, List<Transform> transformList = null)
+    {
+        if (transformList == null) transformList = new List<Transform>();
 
+        foreach (Transform child in transform)
+        {
+            transformList.Add(child);
+            child.GetAllChildren(transformList);
+        }
+        return transformList;
+    }
 }
