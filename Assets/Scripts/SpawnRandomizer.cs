@@ -21,7 +21,7 @@ public class SpawnRandomizer : MonoBehaviour
     public int instanceNumber = 20;
     [Tooltip("Equal value as scale property of prefab")]
     public float minimumDistance = 1;
-    private List<GameObject> spawnedObject = new List<GameObject>();
+    public List<GameObject> spawnedObject = new List<GameObject>();
 
 
     private const int MAX_ATTEMPTS = 0;

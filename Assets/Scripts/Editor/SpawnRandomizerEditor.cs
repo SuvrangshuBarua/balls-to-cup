@@ -19,9 +19,17 @@ public class SpawnRandomizerEditor : Editor
         EditorGUILayout.PropertyField(serializedObject.FindProperty("sphereRadius"));
         EditorGUI.EndDisabledGroup();
         EditorGUILayout.Space(10f);
-        if (GUILayout.Button("Instantiate"))
+        if (!Application.isPlaying)
         {
-            universalBall.SpawnRandomBalls();
+            if (GUILayout.Button("Instantiate"))
+            {
+                universalBall.SpawnRandomBalls();
+            }
         }
+        else
+        {
+            
+        }
+        
     }
 }
