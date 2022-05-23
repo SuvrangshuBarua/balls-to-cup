@@ -14,13 +14,14 @@ public class SpawnRandomizer : MonoBehaviour
     [Tooltip("This transform is used to determine the center of UnitSphere")]
     public Transform sphereCenterTransform;
     [HideInInspector]
-    public float sphereRadius = 3.5f;
+    public float sphereRadius = 3.25f;
     [Header("Instantiation Settings")]
     public GameObject ballPrefab;
-    [Range(5, 50)]
+    [Range(5, 45)]
     public int instanceNumber = 20;
     [Tooltip("Equal value as scale property of prefab")]
     public float minimumDistance = 1;
+    [HideInInspector]
     public List<GameObject> spawnedObject = new List<GameObject>();
 
 

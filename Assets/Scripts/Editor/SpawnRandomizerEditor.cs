@@ -14,7 +14,7 @@ public class SpawnRandomizerEditor : Editor
     public override void OnInspectorGUI()
     {
         base.OnInspectorGUI();
-        
+
         EditorGUI.BeginDisabledGroup(true);
         EditorGUILayout.PropertyField(serializedObject.FindProperty("sphereRadius"));
         EditorGUI.EndDisabledGroup();
