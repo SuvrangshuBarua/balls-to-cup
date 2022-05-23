@@ -10,6 +10,7 @@ public class UIManager : MonoBehaviour
 {
     #region Public Variables
     [Header("UI Dependencies")]
+    public Text levelNo;
     public Text TargetScoreText;
     public Text CurrentScoreText;
     public RectTransform winPanel;
@@ -38,7 +39,7 @@ public class UIManager : MonoBehaviour
             ShowTutorial();
         }
         DragHandler.instance.onDragStart += DragStart;
-        DOVirtual.DelayedCall(0.1f, () =>
+        DOVirtual.DelayedCall(0.05f, () =>
         {
             ConfigureUI();
         });
@@ -56,6 +57,7 @@ public class UIManager : MonoBehaviour
     {
         TargetScoreText.text = targetScore.Value.ToString();
         CurrentScoreText.text = currentScore.Value.ToString();
+        levelNo.text = GameManager.Instance.GetLevel().ToString();
         nextButton.onClick.AddListener(() => GameManager.Instance.NextLevel());
         reloadButton.onClick.AddListener(() => GameManager.Instance.ReloadLevel()); ;
         isCalledOnce = false;
