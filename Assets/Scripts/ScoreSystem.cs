@@ -22,7 +22,6 @@ public class ScoreSystem : MonoBehaviour
     
 
     private CollisionReporter collisionReporter;
-
     private void Start()
     {
         if (shouldResetData)

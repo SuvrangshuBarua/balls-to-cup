@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
 
+    [SerializeField]
     private int levelNumber;
 
     private const int defaultValue = 0;
@@ -54,7 +55,12 @@ public class GameManager : MonoBehaviour
     }
     private int GetSceneIndex()
     {
-        return levelNumber % totalLevelNumber;
+        levelNumber = LevelNumber;
+        return (levelNumber % totalLevelNumber) + 1;
+    }
+    public void GameStarted()
+    {
+
     }
     private void LevelSave()
     {
@@ -70,6 +76,10 @@ public class GameManager : MonoBehaviour
     public void ReloadLevel()
     {
         LoadLevel();
+    }
+    public int GetLevel()
+    {
+        return levelNumber + 1;
     }
 
 }

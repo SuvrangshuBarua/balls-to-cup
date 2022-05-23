@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f31e68f86ab08b446be128e2c3524cbc, type: 3}
-  m_Name: 1 TargetScore
+  m_Name: 3 TargetScore
   m_EditorClassIdentifier: 
   DeveloperDescription: 'Points to Score to Pass Level
 
 '
-  Value: 10
+  Value: 30

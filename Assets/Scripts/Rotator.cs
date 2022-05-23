@@ -25,6 +25,7 @@ public class Rotator : MonoBehaviour
     private int dragMultiplier = 100;
     private bool dragged;
     private Vector2 dragAmount;
+    private bool isCalledOnce;
     #endregion
 
     void Start()
@@ -35,6 +36,7 @@ public class Rotator : MonoBehaviour
         DragHandler.instance.onDragStart += DragStart;
         DragHandler.instance.onDrag_delta += DragDelta;
         DragHandler.instance.onDragEnd += DragEnd;
+        isCalledOnce = false;
         //resetButton.onClick.AddListener(ReloadScene);
     }
 
@@ -59,6 +61,7 @@ public class Rotator : MonoBehaviour
 
     private void DragStart(Vector2 dragAmount)
     {
+
     }
 
     public void ApplySettings()
